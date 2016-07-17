@@ -1,0 +1,7 @@
+unisigma\service\PersonaServiceImpServiceLocator.class
+unisigma\service\PersonaServiceProxy.class
+unisigma\cliente\bean\PersonaBean.class
+unisigma\service\PersonaServiceImpService.class
+unisigma\service\Persona.class
+unisigma\service\PersonaServiceImpServiceSoapBindingStub.class
+unisigma\service\PersonaService.class
