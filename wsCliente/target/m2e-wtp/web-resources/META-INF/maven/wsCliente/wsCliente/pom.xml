@@ -48,6 +48,18 @@
 			<artifactId>maven-plugin-annotations</artifactId>
 			<version>3.4</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.10</version>
+		</dependency>
 	</dependencies>
 
 
@@ -70,7 +82,7 @@
 									http://localhost:8080/unisigma-1.0/PersonaServiceImp?wsdl
 								</wsdlUrl>
 							</wsdlUrls>
-							<packageName>"src/main/java/unisigma/ws"
+							<packageName>unisigma.ws
 							</packageName>
 							<sourceDestDir>${basedir}/src/main/java</sourceDestDir>
 						</configuration>
@@ -79,4 +91,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
 </project>

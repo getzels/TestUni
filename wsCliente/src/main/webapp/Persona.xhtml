@@ -1,53 +1,107 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 <body>
 	<h:form>
 		<h:panelGrid columns="3">
 			<h:outputText value="ID Persona" />
-			<h:inputText id="idPersona" label="ID" required="false"
-				value="#{personaBean.persona.idpersona}"></h:inputText>
+			<p:inputText id="idPersona" label="ID" required="true"
+				value="#{personaBean.persona.idpersona}" />
 			<h:message for="idPersona" />
 
 			<h:outputText value="Nombre" />
-			<h:inputText id="nombre" label="nombre" required="false"
-				value="#{personaBean.persona.nombre}"></h:inputText>
+			<p:inputText id="nombre" label="nombre" required="false"
+				value="#{personaBean.persona.nombre}" />
 			<h:message for="nombre" />
 
 			<h:outputText value="Apellido" />
-			<h:inputText id="apillido" label="apellido" required="false"
-				value="#{personaBean.persona.apellido}"></h:inputText>
+			<p:inputText id="apillido" label="apellido" required="false"
+				value="#{personaBean.persona.apellido}" />
 			<h:message for="apillido" />
 
 			<h:outputText value="Sexo" />
-			<h:inputText id="sexo" label="sexo" required="false"
-				value="#{personaBean.persona.sexo}"></h:inputText>
+			<p:inputText id="sexo" label="sexo" required="false"
+				value="#{personaBean.persona.sexo}" />
 			<h:message for="sexo" />
 
 			<h:outputText value="Fecha Nacimiento" />
-			<h:inputText id="fechaNacimiento" label="ID" required="false"
-				value="#{personaBean.persona.fechaNacimiento}"></h:inputText>
+			<p:calendar id="fechaNacimiento" pattern="dd/MM/yyyy"
+				value="#{personaBean.persona.fechaNacimiento}" showOn="button">
+				<f:converter converterId="unisigma.util.XMLGregorianCalConverter" />
+			</p:calendar>
 			<h:message for="fechaNacimiento" />
 
 			<h:outputText value="Direccion" />
-			<h:inputText id="direccion" label="ID" required="false"
-				value="#{personaBean.persona.direccion}"></h:inputText>
+			<p:inputText id="direccion" label="ID" required="false"
+				value="#{personaBean.persona.direccion}" />
 			<h:message for="direccion" />
 
 			<h:outputText value="Correo Electronico" />
-			<h:inputText id="correoElectronico" label="ID" required="false"
-				value="#{personaBean.persona.correoElectronico}"></h:inputText>
+			<p:inputText id="correoElectronico" label="ID" required="false"
+				value="#{personaBean.persona.correoElectronico}" />
 			<h:message for="correoElectronico" />
-
+		</h:panelGrid>
+		<h:panelGrid columns="5">
 			<h:commandButton id="consulta" value="Consulta">
-				<f:ajax execute="consulta idPersona"
-					action="#{personaBean.buscaPersona()}" />
+				<f:ajax execute="idPersona consulta" render="@all"
+					listener="#{personaBean.buscaPersona()}" />
+			</h:commandButton>
+
+			<h:commandButton id="inserta" value="Inserta">
+				<f:ajax execute="@all" render="@all"
+					listener="#{personaBean.insertaPersona()}" />
+			</h:commandButton>
+
+			<h:commandButton id="actualiza" value="Actualiza">
+				<f:ajax execute="@all" render="@all"
+					listener="#{personaBean.actualizaPersona()}" />
+			</h:commandButton>
+
+			<h:commandButton id="borrar" value="Borrar">
+				<f:ajax execute="@this" render="@all"
+					listener="#{personaBean.borrarPersona()}" />
+			</h:commandButton>
+
+			<h:commandButton id="limpia" value="Limpia">
+				<f:ajax execute="@this" render="@all"
+					listener="#{personaBean.limpiaPersona()}" />
 			</h:commandButton>
 		</h:panelGrid>
+
+		<h3>On-Demand Data</h3>
+		<p:dataTable var="persona" value="#{personaBean.personas}"
+			scrollRows="20" scrollable="true" liveScroll="true"
+			scrollHeight="150" style="margin-bottom:0">
+			<p:column headerText="Id" footerText="Id">
+				<h:outputText value="#{persona.idpersona}" />
+			</p:column>
+			<p:column headerText="Nombre" footerText="Nombre">
+				<h:outputText value="#{persona.nombre}" />
+			</p:column>
+			<p:column headerText="Apellido" footerText="Apellido">
+				<h:outputText value="#{persona.apellido}" />
+			</p:column>
+			<p:column headerText="Sexo" footerText="Sexo">
+				<h:outputText value="#{persona.sexo}" />
+			</p:column>
+			<p:column headerText="Fecha Nacimiento" footerText="Fecha Nacimiento">
+				<h:outputText value="#{persona.fechaNacimiento}">
+					<f:converter converterId="unisigma.util.XMLGregorianCalConverter" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Direccion" footerText="Direccion">
+				<h:outputText value="#{persona.direccion}" />
+			</p:column>
+			<p:column headerText="Correo Electronico"
+				footerText="Correo Electronico">
+				<h:outputText value="#{persona.correoElectronico}" />
+			</p:column>
+		</p:dataTable>
+
 	</h:form>
 </body>
 </html>
