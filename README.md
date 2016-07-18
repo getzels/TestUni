@@ -42,3 +42,5 @@ servicio, JSF en en cliente para consumir el servicio web.
 Tests
 
 El proyecto cuenta nos las puebas unitarios tanto de las capa de servicio/datos como en el proyecto del cliente test del servicio web.
+
+Preguntas y observaciones get.delossantos@gmail.com
