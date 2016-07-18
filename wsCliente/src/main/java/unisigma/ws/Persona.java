@@ -45,16 +45,30 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class Persona {
 
-    @Override
-	public String toString() {
-		return "Persona [apellido=" + apellido + ", correoElectronico=" + correoElectronico + ", direccion=" + direccion
-				+ ", fechaNacimiento=" + fechaNacimiento + ", idpersona=" + idpersona + ", nombre=" + nombre + ", sexo="
-				+ sexo + "]";
+    protected String apellido;
+    protected String correoElectronico;
+    protected String direccion;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar fechaNacimiento;
+    protected int idpersona;
+    protected String nombre;
+    protected String sexo;
+
+    
+
+	public Persona(String apellido, String correoElectronico, String direccion, XMLGregorianCalendar fechaNacimiento,
+			int idpersona, String nombre, String sexo) {
+		super();
+		this.apellido = apellido;
+		this.correoElectronico = correoElectronico;
+		this.direccion = direccion;
+		this.fechaNacimiento = fechaNacimiento;
+		this.idpersona = idpersona;
+		this.nombre = nombre;
+		this.sexo = sexo;
 	}
 
-	protected String apellido;
-    protected String correoElectronico;
-    public Persona(String apellido, String correoElectronico, String direccion, XMLGregorianCalendar fechaNacimiento,
+	public Persona(String apellido, String correoElectronico, String direccion, XMLGregorianCalendar fechaNacimiento,
 			String nombre, String sexo) {
 		super();
 		this.apellido = apellido;
@@ -69,18 +83,7 @@ public class Persona {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Persona(int idpersona2) {
-		this.idpersona = idpersona2;
-	}
-
-	protected String direccion;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar fechaNacimiento;
-    protected int idpersona;
-    protected String nombre;
-    protected String sexo;
-
-    /**
+	/**
      * Gets the value of the apellido property.
      * 
      * @return
@@ -239,5 +242,12 @@ public class Persona {
     public void setSexo(String value) {
         this.sexo = value;
     }
+
+	@Override
+	public String toString() {
+		return "Persona [apellido=" + apellido + ", correoElectronico=" + correoElectronico + ", direccion=" + direccion
+				+ ", fechaNacimiento=" + fechaNacimiento + ", idpersona=" + idpersona + ", nombre=" + nombre + ", sexo="
+				+ sexo + "]";
+	}
 
 }
