@@ -1,0 +1,216 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.unisigma/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="PersonaServiceImpService" targetNamespace="http://service.unisigma/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.unisigma/" elementFormDefault="unqualified" targetNamespace="http://service.unisigma/" version="1.0">
+
+  <xs:element name="addPersona" type="tns:addPersona"></xs:element>
+
+  <xs:element name="addPersonaResponse" type="tns:addPersonaResponse"></xs:element>
+
+  <xs:element name="deletePersona" type="tns:deletePersona"></xs:element>
+
+  <xs:element name="deletePersonaResponse" type="tns:deletePersonaResponse"></xs:element>
+
+  <xs:element name="findAllPersona" type="tns:findAllPersona"></xs:element>
+
+  <xs:element name="findAllPersonaResponse" type="tns:findAllPersonaResponse"></xs:element>
+
+  <xs:element name="findPersonaById" type="tns:findPersonaById"></xs:element>
+
+  <xs:element name="findPersonaByIdResponse" type="tns:findPersonaByIdResponse"></xs:element>
+
+  <xs:element name="updatePersona" type="tns:updatePersona"></xs:element>
+
+  <xs:element name="updatePersonaResponse" type="tns:updatePersonaResponse"></xs:element>
+
+  <xs:complexType name="deletePersona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:persona"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="persona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apellido" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="correoElectronico" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="direccion" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime"></xs:element>
+      <xs:element name="idpersona" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="nombre" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sexo" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deletePersonaResponse">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findPersonaById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:persona"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findPersonaByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:persona"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addPersona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:persona"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addPersonaResponse">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllPersona">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllPersonaResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:persona"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updatePersona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:persona"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updatePersonaResponse">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findPersonaById">
+    <wsdl:part element="tns:findPersonaById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPersona">
+    <wsdl:part element="tns:addPersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllPersona">
+    <wsdl:part element="tns:findAllPersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePersona">
+    <wsdl:part element="tns:updatePersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPersonaResponse">
+    <wsdl:part element="tns:addPersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findPersonaByIdResponse">
+    <wsdl:part element="tns:findPersonaByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePersona">
+    <wsdl:part element="tns:deletePersona" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePersonaResponse">
+    <wsdl:part element="tns:updatePersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePersonaResponse">
+    <wsdl:part element="tns:deletePersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllPersonaResponse">
+    <wsdl:part element="tns:findAllPersonaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PersonaService">
+    <wsdl:operation name="deletePersona">
+      <wsdl:input message="tns:deletePersona" name="deletePersona">
+    </wsdl:input>
+      <wsdl:output message="tns:deletePersonaResponse" name="deletePersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findPersonaById">
+      <wsdl:input message="tns:findPersonaById" name="findPersonaById">
+    </wsdl:input>
+      <wsdl:output message="tns:findPersonaByIdResponse" name="findPersonaByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPersona">
+      <wsdl:input message="tns:addPersona" name="addPersona">
+    </wsdl:input>
+      <wsdl:output message="tns:addPersonaResponse" name="addPersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllPersona">
+      <wsdl:input message="tns:findAllPersona" name="findAllPersona">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllPersonaResponse" name="findAllPersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePersona">
+      <wsdl:input message="tns:updatePersona" name="updatePersona">
+    </wsdl:input>
+      <wsdl:output message="tns:updatePersonaResponse" name="updatePersonaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PersonaServiceImpServiceSoapBinding" type="tns:PersonaService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="deletePersona">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="deletePersona">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="deletePersonaResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findPersonaById">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="findPersonaById">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="findPersonaByIdResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPersona">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="addPersona">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="addPersonaResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllPersona">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="findAllPersona">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="findAllPersonaResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePersona">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="updatePersona">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="updatePersonaResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PersonaServiceImpService">
+    <wsdl:port binding="tns:PersonaServiceImpServiceSoapBinding" name="PersonaServiceImpPort">
+      <soap:address location="http://localhost:8080/unisigma-1.0/PersonaServiceImp"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

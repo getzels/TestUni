@@ -1,0 +1,4 @@
+{"JBAS014671: Failed services" => {"jboss.deployment.unit.\"unisigma_ClienteWS.war\".POST_MODULE" => "org.jboss.msc.service.StartException in service jboss.deployment.unit.\"unisigma_ClienteWS.war\".POST_MODULE: JBAS018733: Failed to process phase POST_MODULE of deployment \"unisigma_ClienteWS.war\"
+    Caused by: java.lang.RuntimeException: JBAS018757: Error getting reflective information for class unisigma.cliente.bean.PersonaBean with ClassLoader ModuleClassLoader for Module \"deployment.unisigma_ClienteWS.war:main\" from Service Module Loader
+    Caused by: java.lang.NoClassDefFoundError: LPersona;
+    Caused by: java.lang.ClassNotFoundException: Persona from [Module \"deployment.unisigma_ClienteWS.war:main\" from Service Module Loader]"}}

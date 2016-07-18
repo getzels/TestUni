@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputText value="ID Persona" />
+			<h:inputText id="idPersona" label="ID" required="false"
+				value="#{personaBean.persona.idpersona}"></h:inputText>
+			<h:message for="idPersona" />
+
+			<h:outputText value="Nombre" />
+			<h:inputText id="nombre" label="nombre" required="false"
+				value="#{personaBean.persona.nombre}"></h:inputText>
+			<h:message for="nombre" />
+
+			<h:outputText value="Apellido" />
+			<h:inputText id="apillido" label="apellido" required="false"
+				value="#{personaBean.persona.apellido}"></h:inputText>
+			<h:message for="apillido" />
+
+			<h:outputText value="Sexo" />
+			<h:inputText id="sexo" label="sexo" required="false"
+				value="#{personaBean.persona.sexo}"></h:inputText>
+			<h:message for="sexo" />
+
+			<h:outputText value="Fecha Nacimiento" />
+			<h:inputText id="fechaNacimiento" label="ID" required="false"
+				value="#{personaBean.persona.fechaNacimiento}"></h:inputText>
+			<h:message for="fechaNacimiento" />
+
+			<h:outputText value="Direccion" />
+			<h:inputText id="direccion" label="ID" required="false"
+				value="#{personaBean.persona.direccion}"></h:inputText>
+			<h:message for="direccion" />
+
+			<h:outputText value="Correo Electronico" />
+			<h:inputText id="correoElectronico" label="ID" required="false"
+				value="#{personaBean.persona.correoElectronico}"></h:inputText>
+			<h:message for="correoElectronico" />
+
+			<h:commandButton id="consulta" value="Consulta">
+				<f:ajax execute="consulta idPersona"
+					action="#{personaBean.buscaPersona()}" />
+			</h:commandButton>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

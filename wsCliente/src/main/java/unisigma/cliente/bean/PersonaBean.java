@@ -59,6 +59,8 @@ public class PersonaBean implements Serializable {
 			}
 		} catch (Exception e) {
 			MessageUtil.mensajeError("Error insertando la persona " + persona.getIdpersona());
+		}finally{
+			this.init();	
 		}
 	}
 
@@ -72,6 +74,8 @@ public class PersonaBean implements Serializable {
 			}
 		} catch (Exception e) {
 			MessageUtil.mensajeError("Error actualizando la persona " + persona.getIdpersona());
+		}finally{
+			this.init();	
 		}
 	}
 
@@ -83,8 +87,11 @@ public class PersonaBean implements Serializable {
 			} else {
 				MessageUtil.mensajeError("Error borrando la persona " + persona.getIdpersona());
 			}
+			
 		} catch (Exception e) {
 			MessageUtil.mensajeError("Error borrando la persona " + persona.getIdpersona());
+		}finally{
+			this.init();	
 		}
 	}
 

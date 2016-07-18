@@ -6,6 +6,13 @@
 
 <h:head></h:head>
 <body>
+
+	<div>
+
+		<h1>Mantenimiento de Ciudadano</h1>
+
+	</div>
+
 	<h:form>
 		<h:panelGrid columns="3">
 			<h:outputText value="ID Persona" />
@@ -24,8 +31,11 @@
 			<h:message for="apillido" />
 
 			<h:outputText value="Sexo" />
-			<p:inputText id="sexo" label="sexo" required="false"
-				value="#{personaBean.persona.sexo}" />
+			<p:selectOneMenu id="sexo" value="#{personaBean.persona.sexo}"
+				style="width:190px">
+				<f:selectItem itemLabel="Masculino" itemValue="M" />
+				<f:selectItem itemLabel="Femenino" itemValue="F" />
+			</p:selectOneMenu>
 			<h:message for="sexo" />
 
 			<h:outputText value="Fecha Nacimiento" />
@@ -72,7 +82,9 @@
 			</h:commandButton>
 		</h:panelGrid>
 
-		<h3>On-Demand Data</h3>
+		<center>
+			<h3>Ciudadanos Registradas</h3>
+		</center>
 		<p:dataTable var="persona" value="#{personaBean.personas}"
 			scrollRows="20" scrollable="true" liveScroll="true"
 			scrollHeight="150" style="margin-bottom:0">
